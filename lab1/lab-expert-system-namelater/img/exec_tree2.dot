@@ -1,0 +1,16 @@
+digraph G {
+    {"SMM-менеджер"} 
+    
+    AND_1, AND_2 [label="AND", shape=square]
+
+    {"Продакт-менеджер"}
+
+    "SMM-менеджер" -> AND_1 -> {text, socseti, joint, alalizeprod, rinok, goodspeech} [label="?", color=orange]
+    {text, socseti, joint, alalizeprod, rinok} -> AND_1 [label="YES", color=green]
+    goodspeech -> AND_1 -> "SMM-менеджер" [label="NO", color=red]
+    
+    {joint, alalizeprod, rinok} -> AND_2 [label="YES", color=green]
+    "Продакт-менеджер" -> AND_2 -> {predictsell, monitor, marketstrategy} [label="?", color=orange]
+    {predictsell, monitor, marketstrategy} -> AND_2 -> "Продакт-менеджер" [label="YES", color=green]
+
+}

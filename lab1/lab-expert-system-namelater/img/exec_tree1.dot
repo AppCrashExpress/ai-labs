@@ -1,0 +1,28 @@
+digraph G {
+    "Разработчик игр"
+    
+    AND_1, AND_2 [label="AND", shape=square]
+    OR_1, OR_2, OR_3, OR_4 [label="OR", shape=square]
+    
+    "Разработчик игр" -> AND_1 -> {mechanics, deepprog, engines} [label="?", color=orange]
+    {mechanics, deepprog, engines} -> AND_1 -> "Разработчик игр" [label="YES", color=green]
+    
+    mechanics -> OR_1 -> physics [label="?", color=orange]
+    physics -> OR_1 -> mechanics [label="YES", color=green]
+    OR_1 -> math
+
+    deepprog -> AND_2 -> {OR_2, langs} [label="?", color=orange]
+    {OR_2, langs} -> AND_2 -> deepprog [label="YES", color=green]
+    OR_2 -> algs [label="?", color=orange]
+    algs -> OR_2 [label="YES", color=green]
+    OR_2 -> {oop, framework}
+
+    langs -> OR_3 -> cpp [label="?", color=orange]
+    cpp -> OR_3 -> langs [label="YES", color=green]
+    OR_3 -> {python, java, csharp}
+
+    engines -> OR_4 -> unity [label="?", color=orange]
+    unity -> OR_4 -> engines [label="YES", color=green]
+    OR_4 -> {unreal, cryengine, idtech}
+
+}
